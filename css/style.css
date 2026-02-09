@@ -219,6 +219,14 @@ nav.scrolled {
     z-index: 1001;
 }
 
+/* Each line of the hamburger */
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--dark-text);
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
 
 
 
