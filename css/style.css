@@ -324,7 +324,7 @@ nav.scrolled {
 }
 
 /* Left side: Text content */
-.her-content {
+.hero-content {
     animation: fadeInUp 0.8s ease-out 0.2s both; /* Fades in and moves up */
 }
 
