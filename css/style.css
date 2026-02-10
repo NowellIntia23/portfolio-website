@@ -523,7 +523,7 @@ section {
 .section-header {
     text-align: center;
     margin-bottom: 60px;
-    opacity: 0; /* Starts invisible for animation */
+    /* opacity: 0; /* Starts invisible for animation - comment muna*/ 
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
@@ -553,6 +553,39 @@ section {
     margin-bottom: 16px;
 }
 
+/* Description under section title - "A glimpse into my journey and aspirations */
+.section-description {
+    font-size: 18px;
+    color: var(--medium-text);
+    max-width: 600px;
+    margin: 0 auto; /*Centers description */
+}
+
+/* === ABOUT SECTION === */
+.about-content {
+    display: grid;
+    gap: 60px;
+}
+
+/* About text paragraphs */
+
+/* comment muna .about-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+} */
+
+.about-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--medium-text);
+    margin-bottom: 20px;
+}
 
 
 
