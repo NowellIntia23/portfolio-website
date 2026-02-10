@@ -787,10 +787,45 @@ section {
     width: 100%;
 }
 
+/* === SKILLS SECTION === */
+/* Grid for skill categories */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
 
+/* === SKILL CATEGORY CARD === */
+.skill-category {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgb(0, 0, 0, 0.12);
+}
 
+/* Category title (Frontend, Backend, etc.) */
+.skill-category-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border-color)
+}
 
+/* List of skills in category title */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
 
 
