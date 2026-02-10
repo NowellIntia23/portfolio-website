@@ -266,6 +266,13 @@ nav.scrolled {
         transition: right 0.3s ease; /* Smooth slide animation*/
     }
 
+    /* When menu is active, slide into view */
+    .nav-links.active {
+        right: 0; /* Moves to the right edge of the screen */
+    }
+
+    
+
 }
 
 
