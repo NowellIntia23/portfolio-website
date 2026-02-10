@@ -101,12 +101,12 @@ body {
 /* =========================== NAVIGATION BAR =========================== */
 /* Fixed navigation at top of page */
 nav {
-    position:fixed;
+    position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white background */
+    background: rgba(255, 255, 255, 0.95); /* Slightly transparent background */
     backdrop-filter: blur(10px); /* Blur effect for modern look */
-    padding:20px 0;
+    padding: 20px 0;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05) /* Subtle shadow for depth */;
     animation: slideDown 0.6 ease-out;
@@ -342,7 +342,42 @@ nav.scrolled {
 }
 
 /* Greeting text (Hello I'm) */
+.hero-greeting {
+    font-size: 18px;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 16px;
+    opacity: 0; /* Starts invisible */
+    animation: fadeIn 0.6s ease-out 0.4s forwards; /* Fades in after delay */
+}
 
+/* Simple fade in animation */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Main title (your name) */
+.hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+/* Gradient text effect for title */
+.hero-title .gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Subtitle (Frontend - Backend - Mobile - UI/UX) */
+.hero-subtitle {
+    font-size: 20px;
+
+}
 
 
 
