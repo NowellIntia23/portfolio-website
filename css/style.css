@@ -882,7 +882,41 @@ section {
     background: var(--primary-color); /* Purple for filled */
 }
 
+/* === CONTACT SECTION === */
+.contact-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
 
+/* Location badge */
+.location-badge {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--light-bg);
+    color: var(--primary-color);
+    border-radius: 30px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    font-size: 14px;
+}
+
+/* Introduction text */
+.contact-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--medium-text);
+    margin-bottom: 40px;
+}
+
+/* Contact button container */
+.contact-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
 
 
 
