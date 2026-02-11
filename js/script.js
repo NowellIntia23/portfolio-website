@@ -52,5 +52,59 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
+/* === SMOOTH SCROLLING === */
+/* Makes clicking navigation links scroll smoothly to sections instead of jumping */
 
+// Select all links that start with # (internal page links)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Add click listener to each link
+    anchor.addEventListener('click', function (e) {
+        // Prevent default jump behavior
+        e.preventDefault();
+
+        // Get the target section (the href value like "#about")
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+
+        // If target section exists, scroll to it smoothly
+        if (targetSecion) {
+            targetSection.scrollIntoView({
+                behavior: 'smooth', //Smooth scrolling instead of instant
+                block: 'start' // Align to top of section   
+            });
+        }         
+    });
+});
+
+/* === NAVBAR SCROLL EFFECT === */
+/* Adds shadow to navbar when user scrolls down */
+
+windows.addEventListener('scroll', () => {
+    // Get navbar element
+    const navbar = document.getElementById('navbar');
+
+    // Check if user has scrolled more than 50 pixels
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// === SCROLL ANIMATION ===
+// Makes sections fade in and slide up when they appear on screen */
+
+const observerOptions = {
+    threshold: 0.1, // Triggen when 10% of element is visible
+    rootMargin: '0px 0px -50px 0px' // Trigger slightly before element enters view
+};
+
+// Create intersection Observer instance
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+    if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+    }
+});
+}, observeroptions);
 
