@@ -827,8 +827,40 @@ section {
     gap: 20px;
 }
 
+/* === INDIVIDUAL SKILL ITEM === */
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* comment muna opacity: 0; */
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.skill-item.visible {
+    opacity: 1;
+    transform: translateX(0)
+}
+
+/* Skill name and level */
+.skill-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.skill-name {
+    font-weight: 600;
+    color: var(--dark-text);
+    flex-direction: column;
+    gap: 4px;
+}
+
+.skill-level {
+    font-size: 13px;
+    color: var(--medium-text);
+}
 
 
-
-
+ 
 
