@@ -199,20 +199,12 @@ if (contactForm) {
         // === CHECKS IF EMAILJS IS CONFIGURED ===
         if (EMAILJS_PUBLIC_KEY === 'dvTwS8mDyP75f3at1' ||
             EMAILJS_SERVICE_ID === 'service_zk0yz9a' ||
-            EMAILJS_TEMPLATE_ID === 'template_m39jcyo') {
-            }             
-        });
+            EMAILJS_TEMPLATE_ID === 'template_m39jcyo')   {
+        
         // Reset the form
         contactForm.requestFullscreen();
         return;
-}
-
-// === SEND EMAIL VIA EMAILJS ===
-// Change button text to show that it's sending
-const submitButton = contactForm.querySelector('.form-submit');
-const originalButtonText = submitButton.textContent;
-submitButton.textContent = 'Sending...';
-submitButton.disabled = true; // To prevent mul tiple submissions
+    }
 
 // Send email using EmailJS
 emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
@@ -227,4 +219,22 @@ emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
     // Restore button
     submitButton.textContent = originalButtonText;
     submitButton.disabled = false;
-})
+
+}, function(error) {
+    console.error('FAILIED...', error);
+
+    // Show error message to user
+    alert('❌ Oops! Something went wrong.\n\n' +
+        'Please try again or email me directly at: your.email@example.com\n\n' +
+        'Error: ' + error.text);
+
+        // Restore button
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+    });
+});
+}
+
+
+
+
