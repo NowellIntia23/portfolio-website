@@ -34,20 +34,20 @@ HOW TO CUSTOMIZE?
 
     /* Text colors */
     --dark-text: #2D3748; /* Almost black - used for main text */
-    --light-text: #718096; /* Gray - used for secondary text */
+    --medium-text: #718096; /* Gray - used for secondary text */
 
     /* Background colors */
-    --light-bg: #F7FAFC;; /* Very light gray - page background */
+    --light-bg: #F7FAFC; /* Very light gray - page background */
     --card-bg: #FFFFFF; /* White - used for cards and sections */
 
     /* Border and line colors */
-    --border-color: #E2E850; /* Light gray - used for borders and dividers */
+    --border-color: #E2E8F0; /* Light gray - used for borders and dividers */
 
     /* Spacing unit - used for consistent spacing throughout the site */
     --spacing-unit: 8px;
 
     /* Status colors */
-    --success-green: #48BB78 /* Green - for success/available status */;
+    --success-green: #48BB78; /* Green - for success/available status */
 }
 
 /* =========================== (BODY) GLOBAL STYLES =========================== */
@@ -127,7 +127,7 @@ nav.scrolled {
     }
     to {
         transform: translateY(0);
-        opacity: 1
+        opacity: 1;
     }
 }
 
@@ -523,7 +523,7 @@ section {
 .section-header {
     text-align: center;
     margin-bottom: 60px;
-    /* opacity: 0; /* Starts invisible for animation - comment muna*/ 
+    opacity: 0; /* Starts invisible for animation*/ 
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
@@ -569,7 +569,7 @@ section {
 
 /* About text paragraphs */
 
-/* comment muna .about-text {
+.about-text {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
@@ -620,7 +620,7 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
     gap: 24px;
-    /* opacity: 0; comment muna */
+    opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
 }
@@ -679,9 +679,8 @@ section {
     overflow: hidden; /* Keeps image inside rounded corners */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* opacity: 0; comment muna */
+    opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .project-card.visible {
@@ -832,7 +831,7 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* comment muna opacity: 0; */
+    opacity: 0;
     transform: translateX(-20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
@@ -852,8 +851,6 @@ section {
 .skill-name {
     font-weight: 600;
     color: var(--dark-text);
-    flex-direction: column;
-    gap: 4px;
 }
 
 .skill-level {
@@ -945,7 +942,7 @@ section {
 /* Text input and text area */
 .form-group input,
 .form-group textarea {
-    width: 100;
+    width: 100%;
     padding: 14px 16px;
     border: 2px solid var(--border-color);
     border-radius: 8px;
@@ -1003,7 +1000,7 @@ section {
     justify-content: center;
     background: white;
     border-radius: 50%; /* Circular border */
-    color: var(var(--primary-color));
+    color: var(--primary-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
@@ -1042,7 +1039,7 @@ footer p {
 /* Animation when scrolling */
 .fade-in {
     opacity: 0;
-    transform: translatey(20px);
+    transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
@@ -1104,6 +1101,7 @@ footer p {
     .contact-form {
         padding: 32px 24px;
     }
+}
 
     /* Adjustments for phones (max-width: 480px) */
     @media (max-width: 480px) {
@@ -1147,5 +1145,27 @@ footer p {
         }
     }
 
-    
-}
+    /* === PRINT STYLES === */
+    /* Styles for when page is printed */
+    @media print {
+        /* Hide navigation and loading screen */
+        nav,
+        .loading,
+        .menu-toggle {
+            display: none;
+        }
+
+        /* Ensure white background */
+        body {
+            background: white;
+        }
+
+        /* Remove shadow when printing */
+        .project-card,
+        .skill-category,
+        .stat-card,
+        .contact-form {
+            box-shadow: none;
+            border: 1px solid var(--border-color);
+        }
+    }
