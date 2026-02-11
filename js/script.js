@@ -5,7 +5,7 @@ This file contains ALL interactive functionality in the portfolio.
 It handles:
 - Page loading animation
 - Mobile menu
-- Smooth schrolling
+- Smooth scrolling
 - Scroll animations
 - Contact form (with EmailJS email sending)
 === */
@@ -36,6 +36,7 @@ menuToggle.addEventListener('click', () => {
     //Toggle 'active' class on hamburger (transforms it to X shape)
     menuToggle.classList.toggle('active');
     //Toggle 'active' class on menu (slides it in/out)
+    navLinks.classList.toggle('active');
 });
 
 /* === CLOSE MOBILE MENU WHEN LINK CLICKED === */
@@ -67,7 +68,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetSection = document.querySelector(targetId);
 
         // If target section exists, scroll to it smoothly
-        if (targetSecion) {
+        if (targetSection) {
             targetSection.scrollIntoView({
                 behavior: 'smooth', //Smooth scrolling instead of instant
                 block: 'start' // Align to top of section   
@@ -79,7 +80,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 /* === NAVBAR SCROLL EFFECT === */
 /* Adds shadow to navbar when user scrolls down */
 
-windows.addEventListener('scroll', () => {
+window.addEventListener('scroll', () => {
     // Get navbar element
     const navbar = document.getElementById('navbar');
 
@@ -95,7 +96,7 @@ windows.addEventListener('scroll', () => {
 // Makes sections fade in and slide up when they appear on screen */
 
 const observerOptions = {
-    threshold: 0.1, // Triggen when 10% of element is visible
+    threshold: 0.1, // Trigger when 10% of element is visible
     rootMargin: '0px 0px -50px 0px' // Trigger slightly before element enters view
 };
 
@@ -106,7 +107,7 @@ entries.forEach(entry => {
         entry.target.classList.add('visible');
     }
 });
-}, observeroptions);
+}, observerOptions);
 
 // === OBSERVE DIFFERENT ELEMENTS ===
 // Tell the observer to watch these elements for animation
@@ -122,13 +123,47 @@ document.querySelectorAll('.project-card').forEach(el => observer.observe(el));
 
 // Watch skill items with staggered delay for cool cascade effect
 document.querySelectorAll('.skill-item').forEach((el, index) => {
-    el.style.transitionDelay = '${index * 0.1}s';
+    el.style.transitionDelay = `${index * 0.1}s`;
     observer.observe(el);
 });
 
-// Watch about text section
-document.querySelectorAll('.about-stats').forEach(el => observer.observe(el));
+// Watch about text sections
+document.querySelectorAll('.about-text').forEach(el => observer.observe(el));
 
 // Watch about stats section
 document.querySelectorAll('.about-stats').forEach(el => observer.observe(el));
 
+// === ACTIVE NAVIGATION HIGHLIGHT ===
+// Highlights the current section in the navigation menu as you scroll
+
+window.addEventListener('scroll', () => {
+    let current = "";
+
+    const sections = document.querySelectorAll('section');
+
+    // Loop through each section
+    sections.forEach(section => {
+        // Get section's position from top of page
+        const sectionTop = section.offsetTop;
+
+        // Check if you've scrolled past this section
+        if (scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    // Update navigation links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+
+        // Remove 'active' class from all links
+        link.classList.remove('active');
+
+        // Get the link's href (like "#about")
+        const linkHref = link.getAttribute('href').slice(1); // Remove the # symbol
+
+        // If this link matches the current section, add 'active' class
+        if (linkHref === current) {
+            link.classList.add('active');
+        }
+});
+});
