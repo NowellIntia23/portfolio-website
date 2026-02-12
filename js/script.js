@@ -253,4 +253,18 @@ function isInViewport(element) {
     );
 }
 
+// Smoothly scroll to top page
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Get to current scroll position
+function getScrollPosition() {
+    return window.pageYOffset || document.documentElement.scrollTop;
+}
+
+
 
