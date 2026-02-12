@@ -129,6 +129,12 @@ nav {
     transition: box-shadow 0.3s ease;
 }
 
+/* Dark mode: Override navbar background to dark color */
+body.dark-mode nav {
+    background: rgba(45, 55, 72, 0.95); /* Dark blue-gray with 95% opacity */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for visibility */
+}
+
 /* Enhanced shadow when user scrolls down */
 nav.scrolled {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow when scrolled */
@@ -291,6 +297,11 @@ nav.scrolled {
         gap: 30px;
         box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1); /* Shadow on left side */
         transition: right 0.3s ease; /* Smooth slide animation*/
+    }
+
+    body.dark-mode .nav-links {
+        background: rgba(45, 55, 72, 0.98); /* Dark background for mobile menu */
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.4); /* Stronger shadow */
     }
 
     /* When menu is active, slide into view */
