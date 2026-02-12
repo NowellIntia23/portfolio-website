@@ -29,7 +29,7 @@ HOW TO CUSTOMIZE?
     --primary-gradient: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
 
     /* Main colors */
-    --primary-color: #667EEA; /* Purple-blue - used for buttons, links, accents accent */
+    --primary-color: #667EEA; /* Purple-blue - used for buttons, links, accents */
     --secondary-color: #764BA2; /* Darker purple - used for hover states */
 
     /* Text colors */
@@ -94,7 +94,7 @@ body {
 
 /* Animation for the loader spinner */
 @keyframes spin {
-    from { transform: rotate(0deg); }/* Start at 0 degrees */
+    from { transform: rotate(0deg); } /* Start at 0 degrees */
     to { transform: rotate(360deg); } /* Rotate full circle to 360 degrees */
 }
 
@@ -247,7 +247,7 @@ nav.scrolled {
 @media (max-width: 768px) {
     /* Show hamburger menu on mobile phone */
     .menu-toggle {
-        display:flex;
+        display: flex;
     }
 
     /* Mobile menu slides from right side */
@@ -263,7 +263,7 @@ nav.scrolled {
         flex-direction: column; /* Stacks links vertically */
         padding: 100px 40px 40px;
         gap: 30px;
-        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.01); /* Shadow on left side */
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1); /* Shadow on left side */
         transition: right 0.3s ease; /* Smooth slide animation*/
     }
 
@@ -285,7 +285,7 @@ nav.scrolled {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 120px 32px 80px; /* Page around content */
+    padding: 120px 32px 80px; /* Padding around content */
     position: relative;
     overflow: hidden;
 }
@@ -1123,7 +1123,7 @@ footer p {
             padding: 60px 20px;
         }
 
-        /* Small stats number for */
+        /* Small stats number for font size */
         .stat-number {
             font-size: 36px;
         }
