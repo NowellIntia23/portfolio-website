@@ -135,6 +135,10 @@ body.dark-mode nav {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for visibility */
 }
 
+body.dark-mode nav.scrolled {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4); /* Even stronger shadow */
+}
+
 /* Enhanced shadow when user scrolls down */
 nav.scrolled {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow when scrolled */
@@ -1243,6 +1247,11 @@ footer p {
     /* Smaller form padding on mobile */
     .contact-form {
         padding: 32px 24px;
+    }
+
+        body.dark-mode .nav-links {
+        background: rgba(45, 55, 72, 0.98); /* Dark background for mobile menu */
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.4); /* Stronger shadow */
     }
 }
 
