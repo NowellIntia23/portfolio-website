@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
 
 
 /* === MOBILE MENU TOGGLE === */
-/* Makes the hamburger menu on mobile device */
+/* Makes the hamburger menu work on mobile device */
 
 // Get hamburger button element
 const menuToggle = document.getElementById('menuToggle');
@@ -70,8 +70,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         // If target section exists, scroll to it smoothly
         if (targetSection) {
             targetSection.scrollIntoView({
-                behavior: 'smooth', //Smooth scrolling instead of instant
-                block: 'start' // Align to top of section   
+                behavior: 'smooth', // Smooth scrolling instead of instant
+                block: 'start' // Align to top of section
             });
         }         
     });
@@ -102,11 +102,11 @@ const observerOptions = {
 
 // Create intersection Observer instance
 const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-    if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-    }
-});
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
 }, observerOptions);
 
 // === OBSERVE DIFFERENT ELEMENTS ===
@@ -147,7 +147,7 @@ window.addEventListener('scroll', () => {
         const sectionTop = section.offsetTop;
 
         // Check if you've scrolled past this section
-        if (scrollY >= (sectionTop - 200)) {
+        if (window.scrollY >= (sectionTop - 200)) {
             current = section.getAttribute('id');
         }
     });
@@ -284,7 +284,7 @@ backToTopButton.style.cssText = `
     font-size: 24px;
     cursor: pointer;
     display: none;
-    z-index: 99;
+    z-index: 998;
 `;
 document.body.appendChild(backToTopButton);
 
