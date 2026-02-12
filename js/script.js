@@ -93,7 +93,7 @@ window.addEventListener('scroll', () => {
 });
 
 // === SCROLL ANIMATION ===
-// Makes sections fade in and slide up when they appear on screen */
+// Makes sections fade in and slide up when they appear on screen
 
 const observerOptions = {
     threshold: 0.1, // Trigger when 10% of element is visible
@@ -172,9 +172,9 @@ window.addEventListener('scroll', () => {
 // Handles contact form submission and sends email using EmailJS service
 
 // EMAILJS CREDENTIALS
-const EMAILJS_PUBLIC_KEY = "OIOI"
-const EMAILJS_SERVICE_ID = "OIOI"
-const EMAILJS_TEMPLATE_ID = "OIOI"
+const EMAILJS_PUBLIC_KEY = "OIOI";
+const EMAILJS_SERVICE_ID = "OIOI";
+const EMAILJS_TEMPLATE_ID = "OIOI";
 
 if (typeof emailjs !== 'undefined') {
     emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -183,53 +183,62 @@ if (typeof emailjs !== 'undefined') {
 // Get contact form element
 const contactForm = document.getElementById('contactForm');
 
-// If form exists on page, adds submit handler
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         // Prevent default form submission
         e.preventDefault();
 
-        // Get form data from input fields
+        // Get submit button
+        const submitButton = contactForm.querySelector('.form-submit');
+
+        if (!submitButton) {
+            console.error('Submit button not found!');
+            return;
+        }
+
+        const originalButtonText = submitButton.textContent;
+        submitButton.textContent = "Sending...";
+        submitButton.disabled = true;
+
         const formData = {
-            from_name: document.getElementById('name').value, // Sender's name
-            from_email: document.getElementById('email').value, // Sender's email
-            message: document.getElementById('message').value // Message content
+            from_name: document.getElementById('name').value,
+            from_email: document.getElementById('email').value,
+            message: document.getElementById('message').value
         };
 
-// === SEND EMAIL USING EMAILJS ===
-const submitButton = contactForm.querySelector('.form-submit');
-const originalButtonText = submitButton.textContent;
-submitButton.textContent = 'Sending...'
-submitButton.disabled = true; // 
+        // Check if EmailJS is loaded
+        if (typeof emailjs !== 'undefined') {
+            // Send email using EmailJS
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
 
-// Send email using EmailJS
-emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
-.then(function(response) {
-    console.log('SUCCESS!', response.status, response.text);
+                alert('✅ Thank you for your message!\n\nI will get back to you as soon as possible.');
 
-    alert('✅ Thank you for your message!\n\nI will get back to you as soon as possible.');
+                // Reset the form
+                contactForm.reset();
 
-    // Reset the form
-    contactForm.reset();
+                // Restore button
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+        })
+            .catch(function(error) {
+                console.error('FAILED...', error);
 
-    // Restore button
-    submitButton.textContent = originalButtonText;
-    submitButton.disabled = false;
+                alert('⚠️ Email service is currently unavailable.\n\nPlease try again or email me directly at: nowellintia.work@gmail.com');
 
-}, function(error) {
-    console.error('FAILED...', error);
+                // Restore button
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+            });
+        } else {
+            alert('⚠️ Email service is currently unavailable.\n\nPlease try again or email me directly at: nowellintia.work@gmail.com');
 
-    // Show error message to user
-    alert('❌ Oops! Something went wrong.\n\n' +
-        'Please try again or email me directly at: your.email@example.com\n\n' +
-        'Error: ' + error.text);
-
-        // Restore button
-        submitButton.textContent = originalButtonText;
-        submitButton.disabled = false;        
-        });
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+        }
     });
-}   
+}
 
 // === UTILITY FUNCTIONS ===
 // Function to check if element is in viewport
@@ -243,7 +252,7 @@ function isInViewport(element) {
     );
 }
 
-// Smoothly scroll to top page
+// Smoothly scroll to top of page
 function scrollToTop() {
     window.scrollTo({
         top: 0,
@@ -251,12 +260,12 @@ function scrollToTop() {
     });
 }
 
-// Get to current scroll position
+// Get the current scroll position
 function getScrollPosition() {
     return window.pageYOffset || document.documentElement.scrollTop;
 }
 
-// ADDITIONAL FEATURES ===
+// === ADDITIONAL FEATURES ===
 // Adds a back to top button that appears when scrolling down
 // Create button element
 const backToTopButton = document.createElement('button');
@@ -279,3 +288,12 @@ backToTopButton.style.cssText = `
 `;
 document.body.appendChild(backToTopButton);
 
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopButton.style.display = 'block';
+    } else {
+        backToTopButton.style.display = 'none';
+    }
+});
+
+backToTopButton.addEventListener('click', scrollToTop);
