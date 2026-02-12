@@ -319,6 +319,40 @@ nav.scrolled {
     margin-right: 20px;
 }
 
+/* Hover effect- subtle lift and shadow */
+.dark-mode-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    border-color: var(--primary-color);
+}
+
+/* Icon styling for both sun and moon */
+.dark-mode-toggle svg {
+    width: 20px;
+    height: 20px;
+    color: var(--dark-text);
+    transition: all 0.3s ease;
+}
+
+/* By default. show moon icon */
+.sun-icon {
+    display: none; /* Hidden in light mode*/
+}
+
+.moon-icon {
+    display: block; /* Visible in light mode */
+}
+
+/* When dark mode is active, swap icons */
+body.dark-mode .sun-icon {
+    display: block; /* Show sun in dark mode */
+}
+
+body.dark-mode .moon-icon {
+    display: none;
+}
+
+
 /* =========================== HERO SECTION (HOME PAGE) =========================== */
 .hero {
     min-height: 100vh; /* Full screen height */
