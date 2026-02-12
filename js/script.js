@@ -22,6 +22,40 @@ window.addEventListener('load', () => {
     }, 500);
 });
 
+// ================== DARK MODE FUNCTIONALITY =====================
+// This section handles switching between light and dark themes
+
+// Wait for page to fully load before running code
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Get the dark mode button element
+    const DarkModeToggle = document.getElementById('darkModeToggle');
+
+    // Check if user has a saved preference in browser
+    // localStorage.getItem() retrieves data
+    const currentTheme = localStorage.getItem('theme');
+
+    // If user previously chose dark mode, apply immediately
+    if (currentTheme == 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+
+    DarkModeToggle.addEventListener('click', function() {
+        // Toggle the 'dark-mode' class on the body element
+        document.body.classList.toggle('dark-mode');
+
+        // Save the user's choice so it persists across page visits
+        // Check if dark mode is currently active
+        if (document.body.classList.contains('dark-mode')) {
+            // Save 'dark' preference
+            localStorage.setItem('theme', 'dark');
+        } else {
+            // Save 'light' preference
+            localStorage.setItem('theme', 'light');
+        }
+    });
+});
+
 // ================== MOBILE MENU TOGGLE =====================
 // Makes the hamburger menu work on mobile device
 
