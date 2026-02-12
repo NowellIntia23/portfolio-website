@@ -281,6 +281,11 @@ nav.scrolled {
         height: 18px;
     }
 
+    body.dark-mode .nav-links {
+    background: rgba(45, 55, 72, 0.98);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.4);
+}
+
     /* Show hamburger menu on mobile phone */
     .menu-toggle {
         display: flex;
@@ -1247,11 +1252,6 @@ footer p {
     /* Smaller form padding on mobile */
     .contact-form {
         padding: 32px 24px;
-    }
-
-        body.dark-mode .nav-links {
-        background: rgba(45, 55, 72, 0.98); /* Dark background for mobile menu */
-        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.4); /* Stronger shadow */
     }
 }
 
