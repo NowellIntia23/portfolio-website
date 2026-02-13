@@ -20,22 +20,6 @@ HOW TO CUSTOMIZE?
     box-sizing: border-box; /* Make width and height include padding and border */
 }
 
-/* Makes the skip navigation link accessible to keyboard users */
-.skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--primary-color);
-      color: white;
-      padding: 8px 16px;
-      text-decoration: none;
-      z-index: 10000;
-    }
-    
-    .skip-link:focus {
-      top: 0;
-    }
-
 /* =========================== CSS VARIABLES (COLOR PALETTE) =========================== */
 /* These are reusable values throughout the CSS */
 /* To change the site's colors, just edit the values! */
@@ -162,6 +146,24 @@ nav {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
     animation: slideDown 0.6s ease-out;
     transition: box-shadow 0.3s ease;
+}
+
+/* ============================== SCROLL PROGRESS BAR =========================== */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--primary-gradient);
+    width: 0%;  
+    z-index: 10000;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+}
+
+/* Dark mode glow effect */
+body.dark-mode .scroll-progress-bar {
+    box-shadow: 0 2px 15px rgba(139, 92, 246, 0.7);
 }
 
 /* Dark mode: Override navbar background to dark color */
