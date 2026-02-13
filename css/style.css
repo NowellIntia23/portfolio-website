@@ -744,6 +744,39 @@ section {
     transform: translateY(-2px);
 }
 
+/* =========================== DARK MODE: INTEREST TAGS =========================== */
+body.dark-mode .interest-tag {
+    background: rgba(102, 126, 234, 0.15);
+    color: #A5B4FC;
+    border: 1px solid rgba(102, 126, 234, 0.25);
+}
+
+body.dark-mode .interest-tag:hover {
+    background: rgba(102, 126, 234, 0.25);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* =========================== DARK MODE: ABOUT SECTION =========================== */
+/* About text container */
+
+body.dark-mode .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .stat-card:hover {
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3);
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+body.dark-mode .stat-number {
+    color: var(--dark-text); /* Light text */
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
 /* =========================== STATS CARDS =========================== */
 /* Container for statistics cards */
 .about-stats {
@@ -1138,7 +1171,7 @@ body.dark-mode .skill-item:hover {
 }
 
 /* =========================== DARK MODE: SKILL DOT =========================== */
-body.dark-mode .skills-dot {
+body.dark-mode .skill-dot {
     background: rgba(102, 126, 234, 0.3);
     border: 1px solid rgba(102, 126, 234, 0.5); /* Subtle border */        
 }
