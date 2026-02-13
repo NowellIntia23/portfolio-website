@@ -1355,7 +1355,23 @@ body.dark-mode .skill-dot.filled {
     background: var(--light-bg);
 }
 
-/* === FOOTER === */
+/* Social links - dark mode */
+body.dark-mode .social-link {
+    background: var(--card-bg);
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .social-link:hover {
+    background: rgba(102, 126, 234, 0.15);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* =========================== FOOTER =========================== */
 footer {
     background: var(--dark-text);
     color: white;
