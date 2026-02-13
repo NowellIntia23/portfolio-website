@@ -97,6 +97,13 @@ body {
     visibility: hidden;
 }
 
+/* =========================== DARK MODE: LOADING SCREEN =========================== */
+/* Dark loading screen for better theme consistency */
+
+body.dark-mode .loading {
+    background: var(--light-bg);
+}
+
 /* The spinning circle loader */
 .loader {
     width: 50px;
@@ -1393,6 +1400,19 @@ footer p {
     font-weight: 600;
 }
 
+/* =========================== DARK MODE: FOOTER =========================== */
+/* Make footer darker in dark mode */
+
+body.dark-mode footer {
+    background: #0F172A;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Footer gradient text - enhance the glow */
+body.dark-mode .footer-gradient {
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
 /* =========================== FADE IN ANIMATION =========================== */
 /* Animation when scrolling */
 .fade-in {
@@ -1526,4 +1546,37 @@ footer p {
         box-shadow: none;
         border: 1px solid var(--border-color);
     }
+}
+
+/* =========================== DARK MODE: SCROLLBAR =========================== */
+
+::webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Dark mode scrollbar */
+body.dark-mode::-webkit-scrollbar-track {
+    background: #1A202C;
+}
+/* =========================== STATS CARDS =========================== */
+body.dark-mode::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 6px;
+}
+
+body.dark-mode::-webkit-slider-thumb:hover {
+    background: var(--primary-color);
 }
