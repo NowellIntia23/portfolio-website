@@ -1176,6 +1176,13 @@ body.dark-mode .project-links a:hover {
     z-index: 2;
 }
 
+body.dark-mode .project-category {
+    background: #334155;  /* Dark slate */
+    color: #E0E7FF;  /* Very light purple */
+    border: 1px solid #475569;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
 /* =========================== SKILLS SECTION =========================== */
 /* Grid for skill categories */
 .skills-grid {
