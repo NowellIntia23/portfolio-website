@@ -20,6 +20,22 @@ HOW TO CUSTOMIZE?
     box-sizing: border-box; /* Make width and height include padding and border */
 }
 
+/* Makes the skip navigation link accessible to keyboard users */
+.skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary-color);
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      z-index: 10000;
+    }
+    
+    .skip-link:focus {
+      top: 0;
+    }
+
 /* =========================== CSS VARIABLES (COLOR PALETTE) =========================== */
 /* These are reusable values throughout the CSS */
 /* To change the site's colors, just edit the values! */
@@ -76,6 +92,17 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling on small screens - hide horizontal scrollbar */
 }
 
+/* Respect user's motion preferences for WCAG 2.1 compliance */
+@media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
 /* =========================== LOADING SCREEN =========================== */
 /* The animated spinner that shows while the page is loading */
 .loading {
@@ -95,6 +122,7 @@ body {
 .loading.hide {
     opacity: 0;
     visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 /* =========================== DARK MODE: LOADING SCREEN =========================== */
@@ -191,6 +219,13 @@ nav.scrolled {
 .logo:hover {
     transform: scale(1.05); /* Scale up the logo slightly on hover */
 }
+
+/* Improved keyboard navigation */
+.nav-links a:focus-visible {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
 
 /* =========================== NAVIGATION LINKS =========================== */
 .nav-links {
@@ -1624,7 +1659,7 @@ body.dark-mode .footer-gradient {
 
 /* =========================== DARK MODE: SCROLLBAR =========================== */
 
-::webkit-scrollbar {
+::-webkit-scrollbar {
     width: 12px;
 }
 
@@ -1654,3 +1689,12 @@ body.dark-mode::-webkit-scrollbar-thumb {
 body.dark-mode::-webkit-slider-thumb:hover {
     background: var(--primary-color);
 }
+
+section {
+      page-break-inside: avoid;
+    }
+    
+    .project-card,
+    .skill-category {
+      page-break-inside: avoid;
+    }
